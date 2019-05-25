@@ -1,0 +1,14 @@
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\bin\Release\netcoreapp2.1\AnparMobileBackend.deps.json
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\bin\Release\netcoreapp2.1\AnparMobileBackend.runtimeconfig.json
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\bin\Release\netcoreapp2.1\AnparMobileBackend.runtimeconfig.dev.json
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\bin\Release\netcoreapp2.1\AnparMobileBackend.dll
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\bin\Release\netcoreapp2.1\AnparMobileBackend.pdb
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\obj\Release\netcoreapp2.1\AnparMobileBackend.csprojAssemblyReference.cache
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\obj\Release\netcoreapp2.1\AnparMobileBackend.csproj.CoreCompileInputs.cache
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\obj\Release\netcoreapp2.1\AnparMobileBackend.RazorAssemblyInfo.cache
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\obj\Release\netcoreapp2.1\AnparMobileBackend.RazorAssemblyInfo.cs
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\obj\Release\netcoreapp2.1\AnparMobileBackend.AssemblyInfoInputs.cache
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\obj\Release\netcoreapp2.1\AnparMobileBackend.AssemblyInfo.cs
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\obj\Release\netcoreapp2.1\AnparMobileBackend.RazorTargetAssemblyInfo.cache
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\obj\Release\netcoreapp2.1\AnparMobileBackend.dll
+C:\Users\Alperen\source\repos\AnparMobileBackend\AnparMobileBackend\obj\Release\netcoreapp2.1\AnparMobileBackend.pdb
