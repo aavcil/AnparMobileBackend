@@ -6,6 +6,8 @@ using AnparMobileBackend.Entities;
 using AnparMobileBackend.Request;
 using AnparMobileBackend.Response;
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Swagger;
+using Contact = AnparMobileBackend.Entities.Contact;
 
 namespace AnparMobileBackend.Data
 {
@@ -34,6 +36,12 @@ namespace AnparMobileBackend.Data
         {
             var product = _context.Products.FirstOrDefault(x => x.id == id);
             Delete(product);
+            return SaveAll();
+        }
+        public bool DeleteInfo(int id)
+        {
+            var info = _context.TechnicalInfos.FirstOrDefault(x => x.id == id);
+            Delete(info);
             return SaveAll();
         }
         public bool DeleteCategory(int id)

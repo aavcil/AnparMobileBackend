@@ -40,3 +40,17 @@ C:\Users\Alperen\Desktop\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcore
 C:\Users\Alperen\Desktop\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.1\AnparMobileBackend.dll
 C:\Users\Alperen\Desktop\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.1\AnparMobileBackend.pdb
 C:\Users\Alperen\Desktop\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.1\AnparMobileBackend.RazorTargetAssemblyInfo.cache
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.1\AnparMobileBackend.deps.json
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.1\AnparMobileBackend.runtimeconfig.json
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.1\AnparMobileBackend.runtimeconfig.dev.json
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.1\AnparMobileBackend.dll
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.1\AnparMobileBackend.pdb
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.1\AnparMobileBackend.csprojAssemblyReference.cache
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.1\AnparMobileBackend.csproj.CoreCompileInputs.cache
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.1\AnparMobileBackend.RazorAssemblyInfo.cache
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.1\AnparMobileBackend.RazorAssemblyInfo.cs
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.1\AnparMobileBackend.AssemblyInfoInputs.cache
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.1\AnparMobileBackend.AssemblyInfo.cs
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.1\AnparMobileBackend.RazorTargetAssemblyInfo.cache
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.1\AnparMobileBackend.dll
+C:\Users\alper\Desktop\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.1\AnparMobileBackend.pdb
