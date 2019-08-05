@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -51,6 +52,7 @@ namespace AnparMobileBackend.Controllers
                         title = product.title,
                         url= profilePictureUrl,
                         description=product.description,
+                        isDeleted = false
                         
                     };
                     _appRepository.Add(products);
@@ -68,8 +70,16 @@ namespace AnparMobileBackend.Controllers
         [HttpDelete("deleteCategory")]
         public ActionResult CategorDelete(int id)
         {
-            bool response = _appRepository.DeleteCategory(id);
-            return Ok(response);
+            bool response=false;
+            var product = _appRepository.GetProductsByCategory(id);
+            if (product == null)
+            {
+                response = _appRepository.DeleteCategory(id);
+                return Ok(response);
+            }
+
+            return Ok(StatusCode(204,"Kategoriye Ait Ürünler Olduğu İçin İşlem Gerçekleştirilemedi."));
+
         }
 
         [HttpGet]
@@ -90,6 +100,19 @@ namespace AnparMobileBackend.Controllers
             var products = _appRepository.GetProductsByCategory(id);
             return Ok(products);
         }
+        [HttpGet("getTrashProduct")]
+        public ActionResult GetTrashProduct()
+        {
+            var products = _appRepository.GetTrashProducts();
+            return Ok(products);
+        }
+        [HttpGet("MoveTrashOrMain")]
+        public ActionResult MoveTrashOrMain(int id)
+        {
+            var products = _appRepository.MoveToTrashMain(id);
+            return Ok(products);
+        }
+
         [HttpGet("getProductsByTitle")]
         public ActionResult GetProductsByTitle(int titleId)
         {

@@ -21,6 +21,7 @@ namespace AnparMobileBackend.Data
         ProductResponse GetProductsById(int id);
         List<ProductResponse> GetProductsByCategory(int id);
         List<ProductResponse> GetProductsByTitle(int titleId);
+        List<ProductResponse> GetTrashProducts();
         Contact GetContact();
         Corporate GetCorporate();
         List<Catalog> GetCatalog();
@@ -32,6 +33,9 @@ namespace AnparMobileBackend.Data
 
 
         bool DeleteProduct(int id);
+
+        bool MoveToTrashMain(int productId);
+
         bool DeleteCategory(int id);
         bool DeleteInfo(int id);
 

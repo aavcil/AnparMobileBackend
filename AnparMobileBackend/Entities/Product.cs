@@ -14,6 +14,7 @@ namespace AnparMobileBackend.Entities
         public string url { get; set; }
         public int titleId{ get; set; }
         public string description { get; set; }
+        public bool isDeleted { get; set; }
         public Category Category { get; set; }
 
     }

@@ -15,5 +15,6 @@ namespace AnparMobileBackend.Response
         public int titleId { get; set; }
         public string categoryName { get; set; }
         public string description { get; set; }
+        public bool isDeleted { get; set; }
     }
 }

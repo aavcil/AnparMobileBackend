@@ -13,7 +13,7 @@ namespace AnparMobileBackend.Data
 {
     public class AppRepository : IAppRepository
     {
-        private DataContext _context;
+        private readonly DataContext _context;
         public AppRepository(DataContext context)
         {
             _context = context;
@@ -21,9 +21,7 @@ namespace AnparMobileBackend.Data
         }
         public void Add<T>(T entity) where T : class
         {
-
             _context.Add(entity);
-
         }
 
 
@@ -38,6 +36,17 @@ namespace AnparMobileBackend.Data
             Delete(product);
             return SaveAll();
         }
+
+        public bool MoveToTrashMain(int productId)
+        {
+            var product = _context.Products.FirstOrDefault(x => x.id == productId);
+            if (product != null)
+            {
+                product.isDeleted = !product.isDeleted;
+            }
+            return SaveAll();
+        }
+
         public bool DeleteInfo(int id)
         {
             var info = _context.TechnicalInfos.FirstOrDefault(x => x.id == id);
@@ -68,10 +77,11 @@ namespace AnparMobileBackend.Data
         public List<CategoryResponse> GetCategories()
         {
 
-            return _context.Categories.Select(x=> new CategoryResponse {
-                categoryName=x.categoryName,
-                id=x.id,
-                titleId=x.titleId
+            return _context.Categories.Select(x => new CategoryResponse
+            {
+                categoryName = x.categoryName,
+                id = x.id,
+                titleId = x.titleId
             }).ToList();
 
         }
@@ -80,9 +90,9 @@ namespace AnparMobileBackend.Data
         {
             return _context.Categories.Where(x => x.titleId == titleId).ToList().Select(x => new CategoryResponse
             {
-               titleId=x.titleId,
-                categoryName=x.categoryName,
-                id=x.id
+                titleId = x.titleId,
+                categoryName = x.categoryName,
+                id = x.id
             }).ToList();
         }
 
@@ -91,12 +101,19 @@ namespace AnparMobileBackend.Data
             return _context.Certificates.ToList();
         }
 
+        public bool MoveProductToTrash(int productId)
+        {
+            var product = _context.Products.FirstOrDefault(x => x.id == productId);
+            product.isDeleted = true;
+            return SaveAll();
+        }
+
         public Contact GetContact()
         {
             return _context.Contacts.FirstOrDefault();
         }
 
-     
+
         public Corporate GetCorporate()
         {
             return _context.Corporates.FirstOrDefault();
@@ -110,82 +127,109 @@ namespace AnparMobileBackend.Data
 
         public List<ProductResponse> GetProducts()
         {
-            return _context.Products.Include(a => a.Category).ToList().Select(a => new ProductResponse
+            return _context.Products.Include(a => a.Category).Where(x => !x.isDeleted).ToList().Select(a => new ProductResponse
             {
-                categoryId=a.Category.id,
-                categoryName=a.Category.categoryName,
-                id=a.id,
-                titleId=a.titleId,
-                measure=a.measure,
-                title=a.title,
-                url=a.url,
-                description=a.description
+                categoryId = a.Category.id,
+                categoryName = a.Category.categoryName,
+                id = a.id,
+                titleId = a.titleId,
+                measure = a.measure,
+                title = a.title,
+                url = a.url,
+                description = a.description,
+                isDeleted = a.isDeleted
             }).ToList();
-            
         }
 
         public List<ProductResponse> GetProductsByCategory(int id)
         {
-            return _context.Products.Where(x => x.categoryId == id).Include(a => a.Category).ToList().Select(z=>new ProductResponse {
-                categoryName=z.Category.categoryName,
-                categoryId=z.categoryId,
+            return _context.Products.Where(x => x.categoryId == id).Include(a => a.Category).Where(x => !x.isDeleted).ToList().Select(z => new ProductResponse
+            {
+                categoryName = z.Category.categoryName,
+                categoryId = z.categoryId,
                 titleId = z.titleId,
-                measure =z.measure,
-                title=z.title,
-                url=z.url,
-                description=z.description,
-                id=z.id
+                measure = z.measure,
+                title = z.title,
+                url = z.url,
+                description = z.description,
+                id = z.id,
+                isDeleted = z.isDeleted
             }).ToList();
         }
 
         public ProductResponse GetProductsById(int id)
         {
-            var product = _context.Products.Include(a => a.Category).FirstOrDefault(x => x.id == id);
-            var newProduct = new ProductResponse()
+            var product = _context.Products.Include(a => a.Category).FirstOrDefault(x => x.id == id && !x.isDeleted);
+            if (product != null)
             {
-                id=product.id,
-                categoryId=product.Category.id,
-                categoryName=product.Category.categoryName,
-                titleId=product.titleId,
-                measure=product.measure,
-                title=product.title,
-                description=product.description,
-                url=product.url
-            };
-            return newProduct;
+                var newProduct = new ProductResponse()
+                {
+                    id = product.id,
+                    categoryId = product.Category.id,
+                    categoryName = product.Category.categoryName,
+                    titleId = product.titleId,
+                    measure = product.measure,
+                    title = product.title,
+                    description = product.description,
+                    url = product.url,
+                    isDeleted = product.isDeleted
+                };
+                return newProduct;
+            }
+
+            return null;
         }
 
         public List<ProductResponse> GetProductsByTitle(int titleId)
         {
-            var products = _context.Products.Where(x => x.titleId == titleId).Include(a => a.Category).ToList().Select(q => new ProductResponse
+            var products = _context.Products.Where(x => x.titleId == titleId).Include(a => a.Category).Where(x => !x.isDeleted).ToList().Select(q => new ProductResponse
             {
-                categoryId=q.categoryId,
-                categoryName=q.Category.categoryName,
-                id=q.id,
-                titleId=q.titleId,
-                measure=q.measure,
-                title=q.title,
-                description=q.description,
-                url=q.url
+                categoryId = q.categoryId,
+                categoryName = q.Category.categoryName,
+                id = q.id,
+                titleId = q.titleId,
+                measure = q.measure,
+                title = q.title,
+                description = q.description,
+                url = q.url,
+                isDeleted = q.isDeleted
             }).ToList();
 
             return products;
         }
 
-     
+        public List<ProductResponse> GetTrashProducts()
+        {
+            return _context.Products.Include(a => a.Category).Where(x => x.isDeleted).Select(q =>
+                new ProductResponse()
+                {
+                    categoryId = q.categoryId,
+                    categoryName = q.Category.categoryName,
+                    id = q.id,
+                    titleId = q.titleId,
+                    measure = q.measure,
+                    title = q.title,
+                    description = q.description,
+                    url = q.url,
+                    isDeleted = q.isDeleted
+                }).ToList();
+        }
+
+
         public List<ProjectResponse> GetProjects()
         {
-            var project = _context.Projects.Include(a => a.Photos).Select((x)=> new ProjectResponse{ 
-            
-                Photos=x.Photos,
-                description=x.description,
-                id=x.id,
-                title=x.title,
-                finishDate=x.finishDate,
-                location=x.location,
-                measure=x.measure,
-                projectNevi=x.projectNevi
-                
+            var project = _context.Projects.Include(a => a.Photos).Select((x) => new ProjectResponse
+            {
+
+                Photos = x.Photos,
+                description = x.description,
+                id = x.id,
+                title = x.title,
+                finishDate = x.finishDate,
+                location = x.location,
+                measure = x.measure,
+                projectNevi = x.projectNevi
+
 
             }).ToList();
             return project;
@@ -201,17 +245,17 @@ namespace AnparMobileBackend.Data
                 description = x.description,
                 id = x.id,
                 title = x.title,
-                finishDate=x.finishDate,
-                location=x.location,
-                measure=x.measure,
-                projectNevi=x.projectNevi
+                finishDate = x.finishDate,
+                location = x.location,
+                measure = x.measure,
+                projectNevi = x.projectNevi
 
             }).FirstOrDefault();
             return project;
 
         }
 
-     
+
 
         public bool SaveAll()
         {

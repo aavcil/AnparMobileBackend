@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\alper\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\alper\\.nuget\\packages",
+      "C:\\Users\\Alperen AVCIL\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Alperen AVCIL\\.nuget\\packages",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }

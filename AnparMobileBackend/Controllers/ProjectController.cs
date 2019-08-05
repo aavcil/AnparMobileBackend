@@ -56,8 +56,8 @@ namespace AnparMobileBackend.Controllers
                 finishDate=project.finishDate,
                 location=project.location,
                 measure=project.measure,
-                projectNevi=project.projectNevi
-                
+                projectNevi=project.projectNevi,
+
             };
             _appRepository.Add(p);
             _appRepository.SaveAll();
@@ -89,7 +89,8 @@ namespace AnparMobileBackend.Controllers
             {
                 id=photo.id,
                 projectId=photo.projectId,
-                url = url
+                url = url,
+                isMain = photo.isMain
             };
             _appRepository.Add(p);
             _appRepository.SaveAll();
