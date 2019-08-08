@@ -84,14 +84,26 @@ namespace AnparMobileBackend.Controllers
                 var profilePictureFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", url);
                 System.IO.File.WriteAllBytes(profilePictureFilePath, Convert.FromBase64String(result));
             }
-
-            var p = new Photo()
+            var p=new Photo();
+            if (photo.isMain && _appRepository.isMainExist(photo.projectId)){
+                if (_appRepository.DeleteMain(photo.projectId))
+                {
+                    p.id = photo.id;
+                    p.projectId = photo.projectId;
+                    p.url = url;
+                    p.isMain = photo.isMain;
+                }
+               
+            }
+            else
             {
-                id=photo.id,
-                projectId=photo.projectId,
-                url = url,
-                isMain = photo.isMain
-            };
+                p.id = photo.id;
+                p.projectId = photo.projectId;
+                p.url = url;
+                p.isMain = photo.isMain;
+            }
+
+           
             _appRepository.Add(p);
             _appRepository.SaveAll();
 

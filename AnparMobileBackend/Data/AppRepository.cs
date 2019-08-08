@@ -254,12 +254,24 @@ namespace AnparMobileBackend.Data
             return project;
 
         }
-
-
-
         public bool SaveAll()
         {
             return _context.SaveChanges() > 0;
+        }
+
+        public bool isMainExist(int id)
+        {
+            var photos=GetProjectsById(id).Photos;
+            return photos.Exists(x => x.isMain == true);
+        }
+        public bool DeleteMain(int id)
+        {
+            var projectPhotos = _context.Photos.ToList();
+            foreach (var item in projectPhotos)
+            {
+                item.isMain = false;
+            }
+            return SaveAll();
         }
     }
 }

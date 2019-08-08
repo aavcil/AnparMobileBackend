@@ -39,8 +39,11 @@ namespace AnparMobileBackend.Data
         bool DeleteCategory(int id);
         bool DeleteInfo(int id);
 
+        bool isMainExist(int id);
 
         bool DeleteProject(int id);
+
+        bool DeleteMain(int id);
 
 
 

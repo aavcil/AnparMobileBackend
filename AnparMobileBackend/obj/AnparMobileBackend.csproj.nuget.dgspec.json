@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alperen AVCIL\\Desktop\\AnparMobileBackend\\AnparMobileBackend\\AnparMobileBackend.csproj": {}
+    "D:\\Anpar\\AnparMobileBackend\\AnparMobileBackend\\AnparMobileBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alperen AVCIL\\Desktop\\AnparMobileBackend\\AnparMobileBackend\\AnparMobileBackend.csproj": {
+    "D:\\Anpar\\AnparMobileBackend\\AnparMobileBackend\\AnparMobileBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alperen AVCIL\\Desktop\\AnparMobileBackend\\AnparMobileBackend\\AnparMobileBackend.csproj",
+        "projectUniqueName": "D:\\Anpar\\AnparMobileBackend\\AnparMobileBackend\\AnparMobileBackend.csproj",
         "projectName": "AnparMobileBackend",
-        "projectPath": "C:\\Users\\Alperen AVCIL\\Desktop\\AnparMobileBackend\\AnparMobileBackend\\AnparMobileBackend.csproj",
-        "packagesPath": "C:\\Users\\Alperen AVCIL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alperen AVCIL\\Desktop\\AnparMobileBackend\\AnparMobileBackend\\obj\\",
+        "projectPath": "D:\\Anpar\\AnparMobileBackend\\AnparMobileBackend\\AnparMobileBackend.csproj",
+        "packagesPath": "C:\\Users\\alper\\.nuget\\packages\\",
+        "outputPath": "D:\\Anpar\\AnparMobileBackend\\AnparMobileBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alperen AVCIL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
