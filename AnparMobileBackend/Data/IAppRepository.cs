@@ -31,6 +31,7 @@ namespace AnparMobileBackend.Data
         List<ProjectResponse> GetProjects();
         ProjectResponse GetProjectsById(int id);
 
+        bool UpdateProject(Project project);
 
         bool DeleteProduct(int id);
 

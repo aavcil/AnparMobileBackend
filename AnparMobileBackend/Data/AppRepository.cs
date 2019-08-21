@@ -273,5 +273,18 @@ namespace AnparMobileBackend.Data
             }
             return SaveAll();
         }
+
+        public bool UpdateProject(Project project)
+        {
+            var proje=_context.Update(project);
+            if (proje != null)
+            {
+                return SaveAll();
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

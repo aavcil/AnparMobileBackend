@@ -109,6 +109,14 @@ namespace AnparMobileBackend.Controllers
 
             return Ok(p);
         }
-
+        [HttpPost("UpdateProject")]
+        public ActionResult UpdateProject([FromBody] Project project)
+        {
+            if (_appRepository.UpdateProject(project))
+            {
+                return Ok(true);
+            }
+            return Ok(false);
+        }
     }
 }
