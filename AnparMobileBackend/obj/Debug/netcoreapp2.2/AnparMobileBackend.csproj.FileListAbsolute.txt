@@ -31,7 +31,6 @@ D:\Anpar\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.2\AnparMobi
 D:\Anpar\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.2\AnparMobileBackend.runtimeconfig.dev.json
 D:\Anpar\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.2\AnparMobileBackend.dll
 D:\Anpar\AnparMobileBackend\AnparMobileBackend\bin\Debug\netcoreapp2.2\AnparMobileBackend.pdb
-D:\Anpar\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.2\AnparMobileBackend.csprojAssemblyReference.cache
 D:\Anpar\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.2\AnparMobileBackend.csproj.CoreCompileInputs.cache
 D:\Anpar\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.2\AnparMobileBackend.RazorAssemblyInfo.cache
 D:\Anpar\AnparMobileBackend\AnparMobileBackend\obj\Debug\netcoreapp2.2\AnparMobileBackend.RazorAssemblyInfo.cs

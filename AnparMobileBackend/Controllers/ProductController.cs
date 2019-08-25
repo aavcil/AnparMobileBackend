@@ -72,7 +72,7 @@ namespace AnparMobileBackend.Controllers
         {
             bool response=false;
             var product = _appRepository.GetProductsByCategory(id);
-            if (product == null)
+            if (product.Count<1)
             {
                 response = _appRepository.DeleteCategory(id);
                 return Ok(response);
@@ -106,7 +106,7 @@ namespace AnparMobileBackend.Controllers
             var products = _appRepository.GetTrashProducts();
             return Ok(products);
         }
-        [HttpGet("MoveTrashOrMain")]
+        [HttpGet("MoveTrashOrMain/{id}")]
         public ActionResult MoveTrashOrMain(int id)
         {
             var products = _appRepository.MoveToTrashMain(id);
