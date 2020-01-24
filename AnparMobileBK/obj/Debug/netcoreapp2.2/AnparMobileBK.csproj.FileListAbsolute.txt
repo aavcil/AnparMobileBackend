@@ -1,0 +1,14 @@
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.deps.json
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.runtimeconfig.json
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.runtimeconfig.dev.json
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.dll
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.csprojAssemblyReference.cache
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.csproj.CoreCompileInputs.cache
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.RazorAssemblyInfo.cache
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.RazorAssemblyInfo.cs
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.AssemblyInfoInputs.cache
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.AssemblyInfo.cs
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.RazorTargetAssemblyInfo.cache
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.pdb
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.dll
+C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.pdb
