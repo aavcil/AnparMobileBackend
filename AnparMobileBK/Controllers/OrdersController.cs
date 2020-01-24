@@ -31,5 +31,14 @@ namespace AnparMobileBK.Controllers
         {
             _dataUtils.WriteOrders(orders);
         }
+
+        [HttpGet("MakeAnOrder/{customerId}/{discount}")]
+        public async Task<ActionResult> MakeAnOrder(int customerId, int discount)
+        {
+            var makeAnOrder = new CreateAnOrder();
+            await makeAnOrder.CreateOrder(customerId, discount);
+            return Ok(makeAnOrder.GetTemplate());
+        }
+
     }
 }
