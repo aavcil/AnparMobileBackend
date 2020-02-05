@@ -26,6 +26,8 @@ namespace AnparMobileBK.Utils
         public static List<Customer> CustomerList = new List<Customer>();
         public static List<Cart> CartList = new List<Cart>();
         public static List<Orders> OrderList = new List<Orders>();
+        public static List<Person> PersonList = new List<Person>();
+        public static List<PersonOrder> PersonOrderList = new List<PersonOrder>();
 
         public DataUtils()
         {
@@ -141,6 +143,44 @@ namespace AnparMobileBK.Utils
                 CartList.Add(cart);
             }
         }
+        public void ReadPersonOrder()
+        {
+            PersonOrderList = new List<PersonOrder>();
+            var range = $"personOrder!A:D";
+            var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
+            var response = request.Execute();
+            var values = response.Values;
+            if (values == null || values.Count <= 0) return;
+            foreach (var row in values)
+            {
+                var personOrder = new PersonOrder()
+                {
+                    Id = int.Parse(row[0].ToString()),
+                    PersonId = int.Parse(row[1].ToString()),
+                    OrderDate = DateTime.Parse(row[2].ToString()),
+                    OrderNo = row[3].ToString()
+                };
+                PersonOrderList.Add(personOrder);
+            }
+        }
+        public void ReadPerson()
+        {
+            PersonList = new List<Person>();
+            var range = $"person!A:B";
+            var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
+            var response = request.Execute();
+            var values = response.Values;
+            if (values == null || values.Count <= 0) return;
+            foreach (var row in values)
+            {
+                var person = new Person()
+                {
+                    Id = int.Parse(row[0].ToString()),
+                    Name = row[1].ToString()
+                };
+                PersonList.Add(person);
+            }
+        }
         public void ReadOrders()
         {
             OrderList = new List<Orders>();
@@ -172,6 +212,14 @@ namespace AnparMobileBK.Utils
         public List<Categories> GetCategories()
         {
             return CategoryList;
+        }
+        public List<Person> GetPersons()
+        {
+            return PersonList;
+        }
+        public List<PersonOrder> GetPersonOrders()
+        {
+            return PersonOrderList;
         }
 
         public List<Customer> GetCustomers()

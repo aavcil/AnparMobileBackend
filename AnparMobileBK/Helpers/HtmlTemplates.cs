@@ -23,7 +23,19 @@ namespace AnparMobileBK.Helpers
 
         public string Template =
             @"<link href=""https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"" rel=""stylesheet"" integrity=""sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"" crossorigin=""anonymous"">
+    <style>
+    tr {
+   line-height: 10px;
+   min-height: 8px;
+   height: 8px;
+   font-size:small;
 
+}
+td{
+    overflow:auto;
+    font-size:small;
+}
+    </style>
 <table   width=""100%"" height=""100%"">
     <tr>
         <td height=""10%"">
@@ -64,7 +76,7 @@ namespace AnparMobileBK.Helpers
 											
 						<table  class=""table table-bordered"" >
 							<tr align=""center"" style=""background-color: #1f4e78;color:White""> <th>Sevk Adresi</th> </tr>					
-							<tr height=""184px"" align=""center"" > <td style=""vertical-align: middle;"">{SevkSekli}</td> </tr>					
+							  <tr style=""height: 172px !important;"" align=""center""><td style=""vertical-align: middle;"">{SevkSekli}</td> </tr>					
 						</table>
 						
 					</td>
