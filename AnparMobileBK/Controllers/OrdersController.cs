@@ -18,23 +18,21 @@ namespace AnparMobileBK.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private readonly DataUtils _dataUtils;
 
-        public OrdersController(DataUtils dataUtils)
+        public OrdersController( )
         {
-            _dataUtils = dataUtils;
         }
 
         [HttpGet]
         public List<Orders> Orders()
         {
-            _dataUtils.ReadOrders();
-            return _dataUtils.GetOrders();
+            DataUtils.ReadOrders();
+            return DataUtils.GetOrders();
         }
         [HttpPost]
         public void WriteOrders([FromBody] Orders orders)
         {
-            _dataUtils.WriteOrders(orders);
+            DataUtils.WriteOrders(orders);
         }
 
         [HttpGet("MakeAnOrder/{customerId}/{discount}/{personId}")]

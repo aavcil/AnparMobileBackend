@@ -12,3 +12,20 @@ C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcor
 C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.pdb
 C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.dll
 C:\Users\Alperen AVCIL\source\repos\AnparMobileBK\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.pdb
+D:\Projects\AnparMobileBackend\AnparMobileBK\bin\Debug\netcoreapp2.2\appsettings.Development.json
+D:\Projects\AnparMobileBackend\AnparMobileBK\bin\Debug\netcoreapp2.2\appsettings.json
+D:\Projects\AnparMobileBackend\AnparMobileBK\bin\Debug\netcoreapp2.2\client_secrets.json
+D:\Projects\AnparMobileBackend\AnparMobileBK\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+D:\Projects\AnparMobileBackend\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.deps.json
+D:\Projects\AnparMobileBackend\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.runtimeconfig.json
+D:\Projects\AnparMobileBackend\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.runtimeconfig.dev.json
+D:\Projects\AnparMobileBackend\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.dll
+D:\Projects\AnparMobileBackend\AnparMobileBK\bin\Debug\netcoreapp2.2\AnparMobileBK.pdb
+D:\Projects\AnparMobileBackend\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.csprojAssemblyReference.cache
+D:\Projects\AnparMobileBackend\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.RazorAssemblyInfo.cache
+D:\Projects\AnparMobileBackend\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.RazorAssemblyInfo.cs
+D:\Projects\AnparMobileBackend\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.AssemblyInfoInputs.cache
+D:\Projects\AnparMobileBackend\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.AssemblyInfo.cs
+D:\Projects\AnparMobileBackend\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.RazorTargetAssemblyInfo.cache
+D:\Projects\AnparMobileBackend\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.dll
+D:\Projects\AnparMobileBackend\AnparMobileBK\obj\Debug\netcoreapp2.2\AnparMobileBK.pdb

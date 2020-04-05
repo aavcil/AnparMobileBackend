@@ -12,24 +12,29 @@ using Newtonsoft.Json;
 
 namespace AnparMobileBK.Utils
 {
-    public class DataUtils
+    public static class DataUtils
     {
-        private static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
+        private static readonly string[] Scopes = {SheetsService.Scope.Spreadsheets};
 
         private static readonly string ApplicationName = "AnparData";
 
         private static readonly string SpreadsheetId = "13ekQ86KKSIDriTWkCg5wlWaJdA_mMAtoNv07d4FER1M";
         private static readonly string sheet = "products";
         private static SheetsService _service;
-        public static List<Products> ProdList = new List<Products>();
-        public static List<Categories> CategoryList = new List<Categories>();
-        public static List<Customer> CustomerList = new List<Customer>();
-        public static List<Cart> CartList = new List<Cart>();
-        public static List<Orders> OrderList = new List<Orders>();
-        public static List<Person> PersonList = new List<Person>();
-        public static List<PersonOrder> PersonOrderList = new List<PersonOrder>();
+        private static List<Products> _prodList = new List<Products>();
+        private static List<Categories> _categoryList = new List<Categories>();
+        private static List<Customer> _customerList = new List<Customer>();
+        private static List<Cart> _cartList = new List<Cart>();
+        private static List<Orders> _orderList = new List<Orders>();
+        private static List<Person> _personList = new List<Person>();
+        private static List<PersonOrder> _personOrderList = new List<PersonOrder>();
+        private static List<Project> _projectList = new List<Project>();
+        private static List<Photo> _photoList = new List<Photo>();
+        private static List<Certificate> _certificates = new List<Certificate>();
+        private static List<Catalog> _catalogs = new List<Catalog>();
+        private static Corporate _corporate = new Corporate();
 
-        public DataUtils()
+        static DataUtils()
         {
             GoogleCredential credential;
             using (var stream = new FileStream("./client_secrets.json", FileMode.Open, FileAccess.Read))
@@ -44,9 +49,9 @@ namespace AnparMobileBK.Utils
             });
         }
 
-        public void ReadProducts()
+        public static void ReadProducts()
         {
-            ProdList = new List<Products>();
+            _prodList = new List<Products>();
             var range = $"{sheet}!A:O";
             var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
@@ -72,13 +77,13 @@ namespace AnparMobileBK.Utils
                     ListPrice = double.Parse(row[13].ToString()),
                     Price = double.Parse(row[14].ToString())
                 };
-                ProdList.Add(product);
+                _prodList.Add(product);
             }
         }
 
-        public void ReadCategories()
+        public static void ReadCategories()
         {
-            CategoryList = new List<Categories>();
+            _categoryList = new List<Categories>();
             var range = $"category!A:D";
             var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
@@ -92,15 +97,117 @@ namespace AnparMobileBK.Utils
                     CategoryCode = int.Parse(row[1].ToString()),
                     Name = row[2].ToString(),
                     Description = row[3].ToString(),
-
                 };
-                CategoryList.Add(category);
+                _categoryList.Add(category);
             }
         }
 
-        public void ReadCustomers()
+        public static void ReadProjects()
         {
-            CustomerList = new List<Customer>();
+            _projectList = new List<Project>();
+            var range = $"project!A:G";
+            var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
+            var response = request.Execute();
+            var values = response.Values;
+            if (values == null || values.Count <= 0) return;
+            foreach (var row in values)
+            {
+                var project = new Project()
+                {
+                    Id = int.Parse(row[0].ToString()),
+                    Title = (row[1].ToString()),
+                    Description = row[2].ToString(),
+                    Location = row[3].ToString(),
+                    FinishDate = DateTime.Parse(row[4].ToString()),
+                    Measure = row[5].ToString(),
+                    ProjectNevi = row[6].ToString()
+                };
+                _projectList.Add(project);
+            }
+        }
+
+        public static void ReadPhotos()
+        {
+            _photoList = new List<Photo>();
+            var range = $"photos!A:C";
+            var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
+            var response = request.Execute();
+            var values = response.Values;
+            if (values == null || values.Count <= 0) return;
+            foreach (var row in values)
+            {
+                var photo = new Photo()
+                {
+                    Id = int.Parse(row[0].ToString()),
+                    Url = (row[1].ToString()),
+                    ProjectId = int.Parse(row[2].ToString()),
+                };
+                _photoList.Add(photo);
+            }
+        }
+
+        public static void ReadCatalogs()
+        {
+            _catalogs = new List<Catalog>();
+            var range = $"catalogs!A:D";
+            var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
+            var response = request.Execute();
+            var values = response.Values;
+            if (values == null || values.Count <= 0) return;
+            foreach (var row in values)
+            {
+                var catalog = new Catalog()
+                {
+                    Id = int.Parse(row[0].ToString()),
+                    Title = (row[1].ToString()),
+                    Url = (row[2].ToString()),
+                    ImageUrl = (row[3].ToString()),
+                };
+                _catalogs.Add(catalog);
+            }
+        }
+
+        public static void ReadCertificates()
+        {
+            _certificates = new List<Certificate>();
+            var range = $"certificate!A:D";
+            var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
+            var response = request.Execute();
+            var values = response.Values;
+            if (values == null || values.Count <= 0) return;
+            foreach (var row in values)
+            {
+                var certificate = new Certificate()
+                {
+                    Id = int.Parse(row[0].ToString()),
+                    Title = (row[1].ToString()),
+                    Description = (row[2].ToString()),
+                    Url = (row[3].ToString()),
+                };
+                _certificates.Add(certificate);
+            }
+        }
+
+        public static void ReadCorporate()
+        {
+            var range = $"corporate!A:B";
+            var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
+            var response = request.Execute();
+            var values = response.Values;
+            if (values == null || values.Count <= 0) return;
+            foreach (var row in values)
+            {
+                _corporate = new Corporate()
+                {
+                    Id = int.Parse(row[0].ToString()),
+                    Description = (row[1].ToString()),
+                };
+            }
+        }
+
+        public static void ReadCustomers()
+        {
+            _customerList = new List<Customer>();
             var range = $"customer!A:H";
             var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
@@ -118,15 +225,14 @@ namespace AnparMobileBK.Utils
                     CustomerName = row[5].ToString(),
                     TaxNumber = row[6].ToString(),
                     DeliveryType = row[7].ToString()
-
                 };
-                CustomerList.Add(customer);
+                _customerList.Add(customer);
             }
         }
 
-        public void ReadCart()
+        public static void ReadCart()
         {
-            CartList = new List<Cart>();
+            _cartList = new List<Cart>();
             var range = $"cart!A:E";
             var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
@@ -140,12 +246,13 @@ namespace AnparMobileBK.Utils
                     ProductId = int.Parse(row[1].ToString()),
                     Quantity = int.Parse(row[2].ToString()),
                 };
-                CartList.Add(cart);
+                _cartList.Add(cart);
             }
         }
-        public void ReadPersonOrder()
+
+        public static void ReadPersonOrder()
         {
-            PersonOrderList = new List<PersonOrder>();
+            _personOrderList = new List<PersonOrder>();
             var range = $"personOrder!A:D";
             var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
@@ -160,12 +267,13 @@ namespace AnparMobileBK.Utils
                     OrderDate = DateTime.Parse(row[2].ToString()),
                     OrderNo = row[3].ToString()
                 };
-                PersonOrderList.Add(personOrder);
+                _personOrderList.Add(personOrder);
             }
         }
-        public void ReadPerson()
+
+        public static void ReadPerson()
         {
-            PersonList = new List<Person>();
+            _personList = new List<Person>();
             var range = $"person!A:B";
             var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
@@ -178,12 +286,13 @@ namespace AnparMobileBK.Utils
                     Id = int.Parse(row[0].ToString()),
                     Name = row[1].ToString()
                 };
-                PersonList.Add(person);
+                _personList.Add(person);
             }
         }
-        public void ReadOrders()
+
+        public static void ReadOrders()
         {
-            OrderList = new List<Orders>();
+            _orderList = new List<Orders>();
             var range = $"orders!A:F";
             var request = _service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
@@ -200,90 +309,124 @@ namespace AnparMobileBK.Utils
                     OrderNumber = int.Parse(row[4].ToString()),
                     Discount = int.Parse(row[5].ToString()),
                 };
-                OrderList.Add(order);
+                _orderList.Add(order);
             }
         }
 
-        public List<Products> GetProducts()
+        public static List<Products> GetProducts()
         {
-            return ProdList;
+            return _prodList;
         }
 
-        public List<Categories> GetCategories()
+        public static List<Categories> GetCategories()
         {
-            return CategoryList;
-        }
-        public List<Person> GetPersons()
-        {
-            return PersonList;
-        }
-        public List<PersonOrder> GetPersonOrders()
-        {
-            return PersonOrderList;
+            return _categoryList;
         }
 
-        public List<Customer> GetCustomers()
+        public static List<Person> GetPersons()
         {
-            return CustomerList;
+            return _personList;
         }
 
-        public List<Cart> GetCarts()
+        public static List<PersonOrder> GetPersonOrders()
         {
-            return CartList;
-        }
-        public List<Orders> GetOrders()
-        {
-            return OrderList;
+            return _personOrderList;
         }
 
-        public void WriteCarts(Cart cart)
+        public static List<Customer> GetCustomers()
+        {
+            return _customerList;
+        }
+
+        public static List<Cart> GetCarts()
+        {
+            return _cartList;
+        }
+
+        public static List<Orders> GetOrders()
+        {
+            return _orderList;
+        }
+
+        public static List<Project> GetProjects()
+        {
+            return _projectList;
+        }
+
+        public static List<Photo> GetPhotos()
+        {
+            return _photoList;
+        }
+
+        public static List<Catalog> GetCatalogs()
+        {
+            return _catalogs;
+        }
+
+        public static List<Certificate> GetCertificates()
+        {
+            return _certificates;
+        }
+
+        public static Corporate GetCorporate()
+        {
+            return _corporate;
+        }
+
+
+        public static void WriteCarts(Cart cart)
         {
             var range = $"cart!A:C";
             var valueRange = new ValueRange();
             ReadCart();
-            var id = CartList.Any() ? CartList.Last().Id + 1 : 1;
+            var id = _cartList.Any() ? _cartList.Last().Id + 1 : 1;
             cart.Id = id;
 
-            var oblist = new List<object>() { cart.Id, cart.ProductId, cart.Quantity };
-            valueRange.Values = new List<IList<object>> { oblist };
+            var oblist = new List<object>() {cart.Id, cart.ProductId, cart.Quantity};
+            valueRange.Values = new List<IList<object>> {oblist};
 
             var appendRequest = _service.Spreadsheets.Values.Append(valueRange, SpreadsheetId, range);
-            appendRequest.ValueInputOption = SpreadsheetsResource.ValuesResource.AppendRequest.ValueInputOptionEnum.USERENTERED;
+            appendRequest.ValueInputOption =
+                SpreadsheetsResource.ValuesResource.AppendRequest.ValueInputOptionEnum.USERENTERED;
             appendRequest.Execute();
         }
-        public void WriteOrders(Orders order)
+
+        public static void WriteOrders(Orders order)
         {
-            var range = $"orders!A:E";
+            var range = $"orders!A:F";
             var valueRange = new ValueRange();
             ReadOrders();
-            var id = OrderList.Last().Id + 1;
+            var id = _orderList.Last().Id + 1;
             order.Id = id;
 
-            var oblist = new List<object>() { order.Id, order.ProductId, order.Quantity, order.CustomerId, order.OrderNumber };
-            valueRange.Values = new List<IList<object>> { oblist };
+            var oblist = new List<object>()
+                {order.Id, order.ProductId, order.Quantity, order.CustomerId, order.OrderNumber, order.Discount};
+            valueRange.Values = new List<IList<object>> {oblist};
 
             var appendRequest = _service.Spreadsheets.Values.Append(valueRange, SpreadsheetId, range);
-            appendRequest.ValueInputOption = SpreadsheetsResource.ValuesResource.AppendRequest.ValueInputOptionEnum.USERENTERED;
+            appendRequest.ValueInputOption =
+                SpreadsheetsResource.ValuesResource.AppendRequest.ValueInputOptionEnum.USERENTERED;
             appendRequest.Execute();
         }
-        public void UpdateEntry()
+
+        public static void UpdateEntry()
         {
             ReadCart();
 
             var range = $"cart!A:C";
             var valueRange = new ValueRange();
 
-            var oblist = new List<object>() { 0 };
-            valueRange.Values = new List<IList<object>> { oblist };
+            var oblist = new List<object>() {0};
+            valueRange.Values = new List<IList<object>> {oblist};
             ClearValuesRequest requestBody = new ClearValuesRequest();
 
-            SpreadsheetsResource.ValuesResource.ClearRequest request = _service.Spreadsheets.Values.Clear(requestBody, SpreadsheetId, range);
+            SpreadsheetsResource.ValuesResource.ClearRequest request =
+                _service.Spreadsheets.Values.Clear(requestBody, SpreadsheetId, range);
             // To execute asynchronously in an async method, replace `request.Execute()` as shown:
             ClearValuesResponse response = request.Execute();
             // Data.ClearValuesResponse response = await request.ExecuteAsync();
             // TODO: Change code below to process the `response` object:
             Console.WriteLine(JsonConvert.SerializeObject(response));
-
         }
     }
 }

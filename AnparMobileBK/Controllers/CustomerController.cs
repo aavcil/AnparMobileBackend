@@ -13,18 +13,15 @@ namespace AnparMobileBK.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly DataUtils _dataUtils;
 
 
-        public CustomerController(DataUtils dataUtils)
+        public CustomerController( )
         {
-            _dataUtils = dataUtils;
         }
         [HttpGet]
         public List<Customer> Customer()
         {
-            _dataUtils.ReadCustomers();
-            return _dataUtils.GetCustomers();
+            return DataUtils.GetCustomers();
         }
     }
 }

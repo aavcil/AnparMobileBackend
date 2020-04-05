@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alperen AVCIL\\source\\repos\\AnparMobileBK\\AnparMobileBK\\AnparMobileBK.csproj": {}
+    "D:\\Projects\\AnparMobileBackend\\AnparMobileBK\\AnparMobileBK.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alperen AVCIL\\source\\repos\\AnparMobileBK\\AnparMobileBK\\AnparMobileBK.csproj": {
+    "D:\\Projects\\AnparMobileBackend\\AnparMobileBK\\AnparMobileBK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alperen AVCIL\\source\\repos\\AnparMobileBK\\AnparMobileBK\\AnparMobileBK.csproj",
+        "projectUniqueName": "D:\\Projects\\AnparMobileBackend\\AnparMobileBK\\AnparMobileBK.csproj",
         "projectName": "AnparMobileBK",
-        "projectPath": "C:\\Users\\Alperen AVCIL\\source\\repos\\AnparMobileBK\\AnparMobileBK\\AnparMobileBK.csproj",
-        "packagesPath": "C:\\Users\\Alperen AVCIL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alperen AVCIL\\source\\repos\\AnparMobileBK\\AnparMobileBK\\obj\\",
+        "projectPath": "D:\\Projects\\AnparMobileBackend\\AnparMobileBK\\AnparMobileBK.csproj",
+        "packagesPath": "C:\\Users\\alperen.avcil\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\AnparMobileBackend\\AnparMobileBK\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alperen AVCIL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alperen.avcil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://drk-nexusosx.doruk.otomasyon:8081/repository/nuget-hosted/": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,6 +45,10 @@
             "Google.Apis.Sheets.v4": {
               "target": "Package",
               "version": "[1.42.0.1791, )"
+            },
+            "IronPdf": {
+              "target": "Package",
+              "version": "[2020.3.2, )"
             },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
@@ -72,7 +77,12 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true

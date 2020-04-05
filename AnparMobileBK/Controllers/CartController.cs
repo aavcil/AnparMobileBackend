@@ -14,21 +14,16 @@ namespace AnparMobileBK.Controllers
     [ApiController]
     public class CartController : ControllerBase
     {
-        private readonly DataUtils _dataUtils;
-
-
-        public CartController(DataUtils dataUtils)
+        public CartController()
         {
-            _dataUtils = dataUtils;
+            DataUtils.ReadCart();
         }
 
         [HttpGet]
         public List<CartResponse> GetCart()
         {
-            _dataUtils.ReadCart();
-            var carts = _dataUtils.GetCarts();
-            _dataUtils.ReadProducts();
-            var products = _dataUtils.GetProducts();
+            var carts = DataUtils.GetCarts();
+            var products = DataUtils.GetProducts();
             return carts.Select(a => new CartResponse()
             {
                 Id = a.Id,
@@ -37,34 +32,35 @@ namespace AnparMobileBK.Controllers
                 ProductResponse = product(a.Id)
             }).ToList();
         }
+
         [HttpPost]
         public void AddCart([FromBody] Cart cart)
         {
-            _dataUtils.WriteCarts(cart);
+            DataUtils.WriteCarts(cart);
         }
+
         [HttpGet("Finish")]
         public void Order()
         {
-            _dataUtils.UpdateEntry();
+            DataUtils.UpdateEntry();
         }
+
         [HttpGet("{id}")]
         public void Carts(int id)
         {
-            _dataUtils.ReadCart();
-            var carts = _dataUtils.GetCarts().Where(a => a.Id != id).ToList();
+            DataUtils.ReadCart();
+            var carts = DataUtils.GetCarts().Where(a => a.Id != id).ToList();
             Order();
             foreach (var cart in carts)
             {
-                _dataUtils.WriteCarts(cart);
+                DataUtils.WriteCarts(cart);
             }
         }
 
         private ProductResponse product(int id)
         {
-            _dataUtils.ReadProducts();
-            _dataUtils.ReadCategories();
-            var prod = _dataUtils.GetProducts().FirstOrDefault(a => a.Id == id);
-            var category = _dataUtils.GetCategories().FirstOrDefault(a => a.Id == prod?.CategoryId);
+            var prod = DataUtils.GetProducts().FirstOrDefault(a => a.Id == id);
+            var category = DataUtils.GetCategories().FirstOrDefault(a => a.Id == prod?.CategoryId);
             return new ProductResponse()
             {
                 Id = prod.Id,

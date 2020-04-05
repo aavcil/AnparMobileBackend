@@ -13,16 +13,13 @@ namespace AnparMobileBK.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
-        private readonly DataUtils _dataUtils;
-        public PersonController(DataUtils dataUtils)
+        public PersonController( )
         {
-            _dataUtils = dataUtils;
         }
         [HttpGet]
         public List<Person> Persons()
         {
-            _dataUtils.ReadPerson();
-            return _dataUtils.GetPersons();
+            return DataUtils.GetPersons();
         }
     }
 }

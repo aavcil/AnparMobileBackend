@@ -14,24 +14,21 @@ namespace AnparMobileBK.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly DataUtils _dataUtils;
 
 
-        public ProductController(DataUtils dataUtils)
+        public ProductController()
         {
-            _dataUtils = dataUtils;
         }
         [HttpGet]
         public List<Products> Get()
         {
-            _dataUtils.ReadProducts();
-            return _dataUtils.GetProducts();
+            return DataUtils.GetProducts();
         }
         [HttpGet("{id}")]
         public ProductResponse GetById(int id)
         {
-            var prod = _dataUtils.GetProducts().FirstOrDefault(a => a.Id == id);
-            var category = _dataUtils.GetCategories().FirstOrDefault(a => a.Id == prod?.CategoryId);
+            var prod = DataUtils.GetProducts().FirstOrDefault(a => a.Id == id);
+            var category = DataUtils.GetCategories().FirstOrDefault(a => a.Id == prod?.CategoryId);
             return new ProductResponse()
             {
                 Id = prod.Id,

@@ -13,18 +13,20 @@ namespace AnparMobileBK.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly DataUtils _dataUtils;
-
-
-        public CategoryController(DataUtils dataUtils)
+        public CategoryController()
         {
-            _dataUtils = dataUtils;
         }
+
         [HttpGet]
         public List<Categories> Category()
         {
-            _dataUtils.ReadCategories();
-            return _dataUtils.GetCategories();
+            return DataUtils.GetCategories();
+        }
+
+        [HttpGet("{id}")]
+        public Categories GetByCategoryId(int id)
+        {
+            return DataUtils.GetCategories().FirstOrDefault(a => a.Id == id);
         }
     }
 }
