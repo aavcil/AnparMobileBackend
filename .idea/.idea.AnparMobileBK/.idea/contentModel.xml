@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\alperen.avcil\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\alperen.avcil\.Rider2019.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\alperen.avcil\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\alperen.avcil\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_AnparMobileBK.1634863671.00" t="ExcludeRecursive" />
+    <e p="D:\Projects\AnparMobileBackend" t="IncludeFlat">
+      <e p="AnparMobileBK" t="IncludeRecursive">
+        <e p="AnparMobileBK.csproj" t="IncludeRecursive" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="client_secrets.json" t="Include" />
+        <e p="Controllers" t="Include">
+          <e p="CartController.cs" t="Include" />
+          <e p="CatalogController.cs" t="Include" />
+          <e p="CategoryController.cs" t="Include" />
+          <e p="CertificateController.cs" t="Include" />
+          <e p="CorporateController.cs" t="Include" />
+          <e p="CustomerController.cs" t="Include" />
+          <e p="OrdersController.cs" t="Include" />
+          <e p="PersonController.cs" t="Include" />
+          <e p="PhotoController.cs" t="Include" />
+          <e p="ProductController.cs" t="Include" />
+          <e p="ProjectController.cs" t="Include" />
+        </e>
+        <e p="Dto" t="Include">
+          <e p="CartResponse.cs" t="Include" />
+          <e p="ProductResponse.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="HtmlTemplates.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="Cart.cs" t="Include" />
+          <e p="Catalog.cs" t="Include" />
+          <e p="Categories.cs" t="Include" />
+          <e p="Certificate.cs" t="Include" />
+          <e p="Corporate.cs" t="Include" />
+          <e p="Customer.cs" t="Include" />
+          <e p="Orders.cs" t="Include" />
+          <e p="Person.cs" t="Include" />
+          <e p="PersonOrder.cs" t="Include" />
+          <e p="Photo.cs" t="Include" />
+          <e p="Products.cs" t="Include" />
+          <e p="Project.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="AnparMobileBK.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="FolderProfile.pubxml" t="Include" />
+          </e>
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="Utils" t="Include">
+          <e p="CreateAnOrder.cs" t="Include" />
+          <e p="DataUtils.cs" t="Include" />
+        </e>
+      </e>
+      <e p="AnparMobileBK.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
